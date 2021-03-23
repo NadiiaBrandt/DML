@@ -8,22 +8,23 @@ VALUES
 	,(7, 'Submarine', 0, '1999-05-16');
 GO
 
-INSERT INTO	TestSchema.TestTable ( ID, InvoiceDate)
+INSERT INTO	TestSchema.TestTable (ID, InvoiceDate)
 VALUES
 	(8, '2020-08-25');
 GO
-INSERT INTO TestSchema.TestTable  ( ID, Name)
+INSERT INTO TestSchema.TestTable  (ID, Name)
 VALUES
 	(9, 'Scooter');
 GO
 
 UPDATE TestSchema.TestTable
-SET IsSold=0
+SET IsSold = 0
 WHERE IsSold IS NULL;
 GO
 
 DELETE FROM TestSchema.TestTable 
-WHERE Name IS NULL OR InvoiceDate IS NULL;
+WHERE Name IS NULL 
+OR InvoiceDate IS NULL;
 GO
 
 CREATE TABLE TestSchema.TestTable2 (
@@ -50,9 +51,8 @@ WHEN MATCHED THEN
 	UPDATE	 
 		SET TRGT.Name=SRC.Name
 WHEN NOT MATCHED THEN
-	INSERT 
-		VALUES (SRC.ID, SRC.Name, SRC.IsSold, SRC.InvoiceDate)
-		;
+	INSERT --лучше вставлять колонки
+		VALUES (SRC.ID, SRC.Name, SRC.IsSold, SRC.InvoiceDate);
 
 
 
