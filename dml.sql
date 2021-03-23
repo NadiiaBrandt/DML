@@ -24,7 +24,7 @@ GO
 
 DELETE FROM TestSchema.TestTable 
 WHERE Name IS NULL 
-OR InvoiceDate IS NULL;
+ OR InvoiceDate IS NULL;
 GO
 
 CREATE TABLE TestSchema.TestTable2 (
